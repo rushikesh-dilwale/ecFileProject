@@ -1,9 +1,10 @@
-// frontend/src/App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Signup from './Signup';
 import Login from './Login';
 import AdminPanel from './AdminPanel';
+import "./App.css";
 
 const App = () => {
   return (
