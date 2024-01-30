@@ -6,7 +6,6 @@ const cors = require('cors');
 const http = require('http');
 const socketIO = require('socket.io');
 const userRoutes = require('./routes/userRoutes');
-const userController= require('./controllers/userControllers');
 
 const app = express();
 const server = http.createServer(app);
@@ -19,6 +18,15 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb+srv://rushidilwale19:rushikesh@cluster0.9l5ibdz.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+// Check MongoDB Connection
+const db = mongoose.connection;
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+db.once('open', () => {
+  console.log('Connected to MongoDB');
 });
 
 // Socket.io Connection
