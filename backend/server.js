@@ -13,13 +13,11 @@ const io = socketIO(server);
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Connection
 mongoose.connect('mongodb+srv://rushidilwale19:rushikesh@cluster0.9l5ibdz.mongodb.net/ecFile', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// Check MongoDB Connection
 const db = mongoose.connection;
 db.on('error', (err) => {
   console.error('MongoDB connection error:', err);

@@ -1,4 +1,4 @@
-// backend/routes/userRoutes.js
+
 const express = require('express');
 const multer = require('multer');
 const userController = require('../controllers/userControllers');
@@ -8,7 +8,6 @@ const upload = multer({ dest: 'uploads/' });
 
 router.post('/signup', upload.single('file'), userController.signup);
 
-// Use dynamic route parameter for verification token
 router.post('/verify/:token', userController.verifyEmail);
 
 router.post('/login', userController.login);
